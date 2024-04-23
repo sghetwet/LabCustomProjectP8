@@ -10,16 +10,14 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Rigidbody rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+     //you DONT need an if statement if you use a horizontal Input
         horizontalInput = Input.GetAxis("Horizontal");
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            transform.Translate(Vector3.right * speed * Time.deltaTime * horizontalInput);
-        }
+        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed); 
     }
 }
